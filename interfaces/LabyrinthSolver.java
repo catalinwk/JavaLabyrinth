@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth.interfaces;
-import Labirinth.*;
+package Labyrinth.interfaces;
+import Labyrinth.*;
 /**
  * Creates the interface for solving the maze
  * @author Catalin Mazilu
@@ -28,10 +28,16 @@ public interface LabyrinthSolver {
      */
     public boolean nextCellToExplore(Cell c);
     
+    
     /**
      * THe method which solves the maze
      * @return true or false, if can be solved
      */
     public boolean solve();
     
+    /**
+     * Adds an observer to the Labyrinth
+     * @param observer - desired observer
+     */
+    public void addObserver(LabyrinthObserver observer);
 }

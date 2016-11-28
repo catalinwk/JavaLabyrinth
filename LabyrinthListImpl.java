@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth;
-import Labirinth.interfaces.*;
+package Labyrinth;
+import Labyrinth.interfaces.*;
 import java.io.*;
 import java.util.*;
 
@@ -45,7 +45,10 @@ public class LabyrinthListImpl
     LabyrinthListImpl(String fileName){
         fileImport(fileName);
     }
-   
+     
+    LabyrinthListImpl(){
+        
+    }
   
     
     /**

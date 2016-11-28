@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth.interfaces;
-import Labirinth.*;
+package Labyrinth.interfaces;
+import Labyrinth.*;
 /**
  * This interface models the text representation of a labyrinth
  * @author Catlain Mazilu

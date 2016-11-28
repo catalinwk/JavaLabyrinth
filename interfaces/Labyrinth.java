@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth.interfaces;
-import Labirinth.*;
+package Labyrinth.interfaces;
+import Labyrinth.*;
 /**
  *
  * @author HP
@@ -80,4 +80,10 @@ public interface Labyrinth {
      */
     public String toString();
       
+    /**
+     * Imports Labyrinth data form file
+     * @param fileName - name of the file
+     * @return true or false based on import result
+     */
+    public boolean fileImport(String fileName);
 }

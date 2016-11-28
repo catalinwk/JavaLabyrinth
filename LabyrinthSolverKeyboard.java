@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth;
-import Labirinth.interfaces.*;
+package Labyrinth;
+import Labyrinth.interfaces.*;
 import java.util.*;
 import java.io.*;
 
 
 /**
- * Solving the maze using keyboard strokes
+ * Solving the labyrinth using keyboard strokes
  * @author Catalin Mazilu
  */
 public class LabyrinthSolverKeyboard 
@@ -24,10 +24,20 @@ implements LabyrinthSolver
      * keeping the list of explored cells
      */
     ArrayList<Cell> explorationCellList = new ArrayList<Cell>();
+    
+   
+    
     /**
      * Internal copy of maze - useful for changing current cell after initialisation
      */
     Labyrinth labyrinth;
+    
+    /**
+     * List of observers
+     */
+    ArrayList<LabyrinthObserver> observerList = new ArrayList<LabyrinthObserver>();
+    
+    
     
     /**
      * Constructor
@@ -36,6 +46,9 @@ implements LabyrinthSolver
    LabyrinthSolverKeyboard (Labyrinth labyrinth){
         this.labyrinth = labyrinth;
         currentCell = labyrinth.getStartCell();
+        
+        //adding current cell to exploration list
+        explorationCellList.add(currentCell);
    }
     
     
@@ -60,11 +73,22 @@ implements LabyrinthSolver
         
     }
     
+       
+    /**
+     * Adds an observer to the Labyrinth
+     * @param observer - desired observer
+     */
+    public void addObserver(LabyrinthObserver observer){
+        observerList.add(observer);
+    }
+    
+    
     /**
      * next
      * @param x direction of movement Up, Right, Down. Left
      * @return true or false - if the movement went ok
      */
+    
     public boolean nextCellToExplore(Cell c){
         
         //testing for boundaries
@@ -81,11 +105,31 @@ implements LabyrinthSolver
         explorationCellList.add(c);
         currentCell=c;
         
+        
+          
         //displaying the cell
         LabyrinthViewStarText lv = new LabyrinthViewStarText(labyrinth);
         lv.setCurrentCell(c);
         
         System.out.println(lv);
+        
+        
+        
+        //activating observers on exploring
+        for (LabyrinthObserver obs : observerList){
+           
+            obs.processCell(c);
+        }
+        
+        
+        //activating observers on solution
+        if (labyrinth.getCellAt(c.x,c.y)==Labyrinth.FINISH_CELL){
+             for (LabyrinthObserver obs : observerList){
+                obs.processSolution(explorationCellList);
+            }
+        }
+       
+      
         
         return true;
         

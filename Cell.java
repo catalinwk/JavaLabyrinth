@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth;
-import Labirinth.*;
+package Labyrinth;
+import Labyrinth.*;
 /**
  * Used to store cell data (x,y)
  * @author Catalin Maziul
@@ -50,5 +50,8 @@ public class Cell {
      */
     public int getCellRow(){
         return this.x;
+    }
+    public String toString(){
+        return x+","+y;
     }
 }

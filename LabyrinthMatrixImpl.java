@@ -2,8 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Labirinth;
-import Labirinth.interfaces.*;
+package Labyrinth;
+import Labyrinth.interfaces.*;
 import java.io.*;
 import java.util.*;
 
@@ -46,7 +46,10 @@ implements Labyrinth {
         fileImport(fileName);
     }
    
-  
+     LabyrinthMatrixImpl( ){
+      
+    }
+   
     
     /**
      * Gets the number of columns
